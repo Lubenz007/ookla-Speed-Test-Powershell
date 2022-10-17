@@ -26,9 +26,9 @@ while ($i -eq 0)
         Jitter        = [math]::Round($SpeedtestResults.ping.jitter)
         Latency       = [math]::Round($SpeedtestResults.ping.latency)       
     }
-    # Henda í table storage
-    #Add-AzTableRow -table $Table -PartitionKey $PartitionKey -RowKey (Get-Date).Ticks -property $SpeedtestObj
-    # Henda í skrá
+    # ---- Move to table storage ----
+    # Add-AzTableRow -table $Table -PartitionKey $PartitionKey -RowKey (Get-Date).Ticks -property $SpeedtestObj
+    # Move to file 
     "$($SpeedtestObj.time)`t   DL: $($SpeedtestObj.downloadspeed)` Mbps   UL: $($SpeedtestObj.uploadspeed)` Mbps   PING: $($SpeedtestObj.Latency)`ms   LOSS: $($SpeedtestObj.packetloss)   ISP: $($SpeedtestObj.isp) ($($SpeedtestObj.ExternalIP))   SERVER: $($SpeedtestObj.location) $($SpeedtestObj.UsedServer)" | Out-File -Append -FilePath $SpeedTestTxt
     Start-Sleep -Seconds 300
 }
