@@ -1,3 +1,3 @@
 # ookla-Speed-Test-Powershell
-Speedtest to Table Storage or csv file 
+Speedtest to Table Storage or CSV file 
 
